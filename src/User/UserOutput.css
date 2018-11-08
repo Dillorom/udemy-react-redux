@@ -1,0 +1,8 @@
+.UserOutput {
+    background: pink;
+    border: 10px bisque;
+    margin: 8px grey;
+    box-shadow: 0 2px 4px gray;
+    width: 60%;
+    margin: auto;
+}

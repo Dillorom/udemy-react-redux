@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UserInput from './User/UserInput'
+import UserOutput from './User/UserOutput'
 
 class App extends Component {
+  state = {
+    username: "Dillorom"
+  }
+
+  onClickHandler = () => {
+    this.setState({
+      username: "Iymona"
+    })
+  }
+  onChangeHandler = (e) => {
+    this.setState({
+      username: e.target.value
+    })
+  }
   render() {
+    const style = {
+      backgroundColor: "white",
+      border: "2px solid gray",
+      padding: "8px ",
+      cursor: 'pointer',
+      margin: '5px'
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <UserInput change={this.onChangeHandler}/>
+      <UserOutput username={this.state.username}/>
+      <UserOutput click={this.onClickHandler}>Click above line to switch the name</UserOutput>
+      <button style={style} onClick={this.onClickHandler}>Click</button>
+       
       </div>
     );
   }
